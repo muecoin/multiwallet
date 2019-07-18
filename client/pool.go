@@ -8,9 +8,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/OpenBazaar/multiwallet/client/blockbook"
-	clientErr "github.com/OpenBazaar/multiwallet/client/errors"
-	"github.com/OpenBazaar/multiwallet/model"
+	"github.com/muecoin/multiwallet/client/blockbook"
+	clientErr "github.com/muecoin/multiwallet/client/errors"
+	"github.com/muecoin/multiwallet/model"
 	"github.com/btcsuite/btcutil"
 	"github.com/op/go-logging"
 	"golang.org/x/net/proxy"
