@@ -6,14 +6,14 @@ import (
 	"io"
 	"time"
 
-	"github.com/OpenBazaar/multiwallet/cache"
-	"github.com/OpenBazaar/multiwallet/client"
-	"github.com/OpenBazaar/multiwallet/config"
-	"github.com/OpenBazaar/multiwallet/keys"
-	"github.com/OpenBazaar/multiwallet/model"
-	"github.com/OpenBazaar/multiwallet/service"
-	"github.com/OpenBazaar/multiwallet/util"
-	zaddr "github.com/OpenBazaar/multiwallet/zcash/address"
+	"github.com/muecoin/multiwallet/cache"
+	"github.com/muecoin/multiwallet/client"
+	"github.com/muecoin/multiwallet/config"
+	"github.com/muecoin/multiwallet/keys"
+	"github.com/muecoin/multiwallet/model"
+	"github.com/muecoin/multiwallet/service"
+	"github.com/muecoin/multiwallet/util"
+	zaddr "github.com/muecoin/multiwallet/zcash/address"
 	wi "github.com/OpenBazaar/wallet-interface"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
@@ -50,7 +50,7 @@ func NewZCashWallet(cfg config.CoinConfig, mnemonic string, params *chaincfg.Par
 	if err != nil {
 		return nil, err
 	}
-	km, err := keys.NewKeyManager(cfg.DB.Keys(), params, mPrivKey, wi.Zcash, zcashCashAddress)
+	km, err := keys.NewKeyManager(cfg.DB.Keys(), params, mPrivKey, util.ExtendCoinType(wi.Zcash), zcashCashAddress)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewZCashWallet(cfg config.CoinConfig, mnemonic string, params *chaincfg.Par
 		return nil, err
 	}
 
-	wm, err := service.NewWalletService(cfg.DB, km, c, params, wi.Zcash, cache)
+	wm, err := service.NewWalletService(cfg.DB, km, c, params, util.ExtendCoinType(wi.Zcash), cache)
 	if err != nil {
 		return nil, err
 	}
