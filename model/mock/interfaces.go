@@ -7,8 +7,8 @@ import (
 	"sync"
 
 	gosocketio "github.com/OpenBazaar/golang-socketio"
-	"github.com/OpenBazaar/multiwallet/client"
-	"github.com/OpenBazaar/multiwallet/model"
+	"github.com/muecoin/multiwallet/client"
+	"github.com/muecoin/multiwallet/model"
 	"github.com/btcsuite/btcutil"
 )
 
