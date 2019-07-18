@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/OpenBazaar/multiwallet/client/blockbook"
+	"github.com/muecoin/multiwallet/client/blockbook"
 	"golang.org/x/net/proxy"
 )
 
