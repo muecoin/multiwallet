@@ -10,7 +10,7 @@ import (
 	"github.com/muecoin/multiwallet/bitcoincash"
 	"github.com/muecoin/multiwallet/litecoin"
 	"github.com/muecoin/multiwallet/zcash"
-	"github.com/muecoin/wallet-interface"
+	"github.com/OpenBazaar/wallet-interface"
 	"github.com/btcsuite/btcutil"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
