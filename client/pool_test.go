@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/OpenBazaar/multiwallet/client"
-	"github.com/OpenBazaar/multiwallet/model"
-	"github.com/OpenBazaar/multiwallet/model/mock"
-	"github.com/OpenBazaar/multiwallet/test/factory"
+	"github.com/muecoin/multiwallet/client"
+	"github.com/muecoin/multiwallet/model"
+	"github.com/muecoin/multiwallet/model/mock"
+	"github.com/muecoin/multiwallet/test/factory"
 	"gopkg.in/jarcoal/httpmock.v1"
 )
 
