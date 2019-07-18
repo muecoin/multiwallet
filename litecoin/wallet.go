@@ -8,14 +8,14 @@ import (
 	"io"
 	"time"
 
-	"github.com/OpenBazaar/multiwallet/cache"
-	"github.com/OpenBazaar/multiwallet/client"
-	"github.com/OpenBazaar/multiwallet/config"
-	"github.com/OpenBazaar/multiwallet/keys"
-	laddr "github.com/OpenBazaar/multiwallet/litecoin/address"
-	"github.com/OpenBazaar/multiwallet/model"
-	"github.com/OpenBazaar/multiwallet/service"
-	"github.com/OpenBazaar/multiwallet/util"
+	"github.com/muecoin/multiwallet/cache"
+	"github.com/muecoin/multiwallet/client"
+	"github.com/muecoin/multiwallet/config"
+	"github.com/muecoin/multiwallet/keys"
+	laddr "github.com/muecoin/multiwallet/litecoin/address"
+	"github.com/muecoin/multiwallet/model"
+	"github.com/muecoin/multiwallet/service"
+	"github.com/muecoin/multiwallet/util"
 	wi "github.com/OpenBazaar/wallet-interface"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
@@ -52,7 +52,7 @@ func NewLitecoinWallet(cfg config.CoinConfig, mnemonic string, params *chaincfg.
 	if err != nil {
 		return nil, err
 	}
-	km, err := keys.NewKeyManager(cfg.DB.Keys(), params, mPrivKey, wi.Litecoin, litecoinAddress)
+	km, err := keys.NewKeyManager(cfg.DB.Keys(), params, mPrivKey, util.ExtendCoinType(wi.Litecoin), litecoinAddress)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewLitecoinWallet(cfg config.CoinConfig, mnemonic string, params *chaincfg.
 		return nil, err
 	}
 
-	wm, err := service.NewWalletService(cfg.DB, km, c, params, wi.Litecoin, cache)
+	wm, err := service.NewWalletService(cfg.DB, km, c, params, util.ExtendCoinType(wi.Litecoin), cache)
 	if err != nil {
 		return nil, err
 	}
