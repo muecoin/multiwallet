@@ -1,11 +1,13 @@
 package config
 
 import (
+	"github.com/muecoin/multiwallet/util"
 	"os"
 	"time"
 
-	"github.com/OpenBazaar/multiwallet/cache"
-	"github.com/OpenBazaar/multiwallet/datastore"
+	"github.com/muecoin/multiwallet/cache"
+	"github.com/muecoin/multiwallet/datastore"
+	
 	"github.com/OpenBazaar/wallet-interface"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/op/go-logging"
@@ -48,7 +50,7 @@ type Config struct {
 
 type CoinConfig struct {
 	// The type of coin to configure
-	CoinType wallet.CoinType
+	CoinType util.ExtCoinType
 
 	// The default fee-per-byte for each level
 	LowFee    uint64
@@ -85,6 +87,30 @@ func NewDefaultConfig(coinTypes map[wallet.CoinType]bool, params *chaincfg.Param
 		testnet = true
 	}
 	mockDB := datastore.NewMockMultiwalletDatastore()
+	if coinTypes[util.CoinTypeMonetaryUnit.ToCoinType()] {
+		var apiEndpoints []string
+		if !testnet {
+			apiEndpoints = []string{
+				"https://explorer.monetaryunit.org/api",
+			}
+		} else {
+			apiEndpoints = []string{
+				"https://explorer.monetaryunit.org/api",
+			}
+		}
+		db, _ := mockDB.GetDatastoreForWallet(util.CoinTypeMonetaryUnit.ToCoinType())
+		mueCfg := CoinConfig{
+			CoinType:   util.CoinTypeMonetaryUnit,
+			FeeAPI:     "",
+			LowFee:     100,
+			MediumFee:  150,
+			HighFee:    300,
+			MaxFee:     100000,
+			ClientAPIs: apiEndpoints,
+			DB:         db,
+		}
+		cfg.Coins = append(cfg.Coins, mueCfg)
+	}
 	if coinTypes[wallet.Bitcoin] {
 		var apiEndpoints []string
 		if !testnet {
@@ -104,7 +130,7 @@ func NewDefaultConfig(coinTypes map[wallet.CoinType]bool, params *chaincfg.Param
 		feeApi := "https://btc.fees.openbazaar.org"
 		db, _ := mockDB.GetDatastoreForWallet(wallet.Bitcoin)
 		btcCfg := CoinConfig{
-			CoinType:   wallet.Bitcoin,
+			CoinType:   util.ExtendCoinType(wallet.Bitcoin),
 			FeeAPI:     feeApi,
 			LowFee:     140,
 			MediumFee:  160,
