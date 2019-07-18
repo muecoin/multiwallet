@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/hex"
 	"errors"
+	"github.com/muecoin/multiwallet/util"
 	"sort"
 	"strconv"
 	"sync"
@@ -39,7 +40,7 @@ func (m *MockMultiwalletDatastore) GetDatastoreForWallet(coinType wallet.CoinTyp
 
 func NewMockMultiwalletDatastore() *MockMultiwalletDatastore {
 	db := make(map[wallet.CoinType]wallet.Datastore)
-	db[wallet.Bitcoin] = wallet.Datastore(&MockDatastore{
+	db[util.CoinTypeMonetaryUnit.ToCoinType()] = wallet.Datastore(&MockDatastore{
 		&MockKeyStore{Keys: make(map[string]*KeyStoreEntry)},
 		&MockUtxoStore{utxos: make(map[string]*wallet.Utxo)},
 		&MockStxoStore{stxos: make(map[string]*wallet.Stxo)},
