@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/OpenBazaar/multiwallet/api"
-	"github.com/OpenBazaar/multiwallet/api/pb"
+	"github.com/muecoin/multiwallet/api"
+	"github.com/muecoin/multiwallet/api/pb"
 	"github.com/jessevdk/go-flags"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
