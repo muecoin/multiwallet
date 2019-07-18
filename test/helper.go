@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/OpenBazaar/multiwallet/model"
+	"github.com/muecoin/multiwallet/model"
 )
 
 func ValidateTransaction(tx, expectedTx model.Transaction, t *testing.T) {
