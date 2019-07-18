@@ -18,9 +18,9 @@ import (
 
 	gosocketio "github.com/OpenBazaar/golang-socketio"
 	"github.com/OpenBazaar/golang-socketio/protocol"
-	clientErr "github.com/OpenBazaar/multiwallet/client/errors"
-	"github.com/OpenBazaar/multiwallet/client/transport"
-	"github.com/OpenBazaar/multiwallet/model"
+	clientErr "github.com/muecoin/multiwallet/client/errors"
+	"github.com/muecoin/multiwallet/client/transport"
+	"github.com/muecoin/multiwallet/model"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcutil"
