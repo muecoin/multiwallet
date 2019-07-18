@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
+	"github.com/muecoin/multiwallet/util"
 	"os"
 	"os/signal"
 	"sync"
 
-	"github.com/OpenBazaar/multiwallet"
-	"github.com/OpenBazaar/multiwallet/api"
-	"github.com/OpenBazaar/multiwallet/cli"
-	"github.com/OpenBazaar/multiwallet/config"
+	"github.com/muecoin/multiwallet"
+	"github.com/muecoin/multiwallet/api"
+	"github.com/muecoin/multiwallet/cli"
+	"github.com/muecoin/multiwallet/config"
 	wi "github.com/OpenBazaar/wallet-interface"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/jessevdk/go-flags"
@@ -63,6 +64,7 @@ func (x *Start) Execute(args []string) error {
 	m[wi.Zcash] = true
 	m[wi.Litecoin] = true
 	m[wi.Ethereum] = true
+	m[util.CoinTypeMonetaryUnit.ToCoinType()] = true
 	params := &chaincfg.MainNetParams
 	if x.Testnet {
 		params = &chaincfg.TestNet3Params
