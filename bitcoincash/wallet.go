@@ -7,13 +7,13 @@ import (
 	"io"
 	"time"
 
-	"github.com/OpenBazaar/multiwallet/cache"
-	"github.com/OpenBazaar/multiwallet/client"
-	"github.com/OpenBazaar/multiwallet/config"
-	"github.com/OpenBazaar/multiwallet/keys"
-	"github.com/OpenBazaar/multiwallet/model"
-	"github.com/OpenBazaar/multiwallet/service"
-	"github.com/OpenBazaar/multiwallet/util"
+	"github.com/muecoin/multiwallet/cache"
+	"github.com/muecoin/multiwallet/client"
+	"github.com/muecoin/multiwallet/config"
+	"github.com/muecoin/multiwallet/keys"
+	"github.com/muecoin/multiwallet/model"
+	"github.com/muecoin/multiwallet/service"
+	"github.com/muecoin/multiwallet/util"
 	wi "github.com/OpenBazaar/wallet-interface"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
@@ -53,7 +53,7 @@ func NewBitcoinCashWallet(cfg config.CoinConfig, mnemonic string, params *chainc
 	if err != nil {
 		return nil, err
 	}
-	km, err := keys.NewKeyManager(cfg.DB.Keys(), params, mPrivKey, wi.BitcoinCash, bitcoinCashAddress)
+	km, err := keys.NewKeyManager(cfg.DB.Keys(), params, mPrivKey, util.ExtendCoinType(wi.BitcoinCash), bitcoinCashAddress)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewBitcoinCashWallet(cfg config.CoinConfig, mnemonic string, params *chainc
 		return nil, err
 	}
 
-	wm, err := service.NewWalletService(cfg.DB, km, c, params, wi.BitcoinCash, cache)
+	wm, err := service.NewWalletService(cfg.DB, km, c, params, util.ExtendCoinType(wi.BitcoinCash), cache)
 	if err != nil {
 		return nil, err
 	}
