@@ -23,8 +23,8 @@ import (
 	"github.com/btcsuite/btcwallet/wallet/txauthor"
 	"github.com/btcsuite/btcwallet/wallet/txrules"
 
-	"github.com/OpenBazaar/multiwallet/util"
-	zaddr "github.com/OpenBazaar/multiwallet/zcash/address"
+	"github.com/muecoin/multiwallet/util"
+	zaddr "github.com/muecoin/multiwallet/zcash/address"
 )
 
 var (
