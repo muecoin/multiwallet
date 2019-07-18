@@ -3,7 +3,7 @@ package model_test
 import (
 	"testing"
 
-	"github.com/OpenBazaar/multiwallet/model"
+	"github.com/muecoin/multiwallet/model"
 )
 
 func Test_toFloat64(t *testing.T) {
