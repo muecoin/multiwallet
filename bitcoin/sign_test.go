@@ -3,7 +3,7 @@ package bitcoin
 import (
 	"bytes"
 	"encoding/hex"
-	"github.com/OpenBazaar/multiwallet/util"
+	"github.com/muecoin/multiwallet/util"
 	"testing"
 	"time"
 
