@@ -61,9 +61,9 @@ var MonetaryUnitMainNetParams = chaincfg.Params{
 	Bech32HRPSegwit: "mue", // always bc for main net
 
 	// Address encoding magics
-	PubKeyHashAddrID: 0x37, // starts with 1
-	ScriptHashAddrID: 0x0d, // starts with 3
-	PrivateKeyID:     0xd4, // starts with 5 (uncompressed) or K (compressed)
+	PubKeyHashAddrID: 0x10,
+	ScriptHashAddrID: 0x4c,
+	PrivateKeyID:     0x7e,
 
 	// BIP32 hierarchical deterministic extended key magics
 	HDPrivateKeyID: [4]byte{0x02, 0x2d, 0x25, 0x33}, // starts with xprv
