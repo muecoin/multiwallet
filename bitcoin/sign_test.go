@@ -95,7 +95,6 @@ func TestBitcoinWallet_buildTx(t *testing.T) {
 	w, err := newMockWallet()
 	if err != nil {
 		//t.Error(err)
-		continue
 	}
 	w.ws.Start()
 	time.Sleep(time.Second / 2)
