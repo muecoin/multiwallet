@@ -46,7 +46,7 @@ func newMockWallet() (*BitcoinWallet, error) {
 	if err != nil {
 		return nil, err
 	}
-	km, err := keys.NewKeyManager(db.Keys(), params, master, util.ExtendCoinType(wallet.Bitcoin), keyToAddress)
+	km, err := keys.NewKeyManager(db.Keys(), params, master, wallet.Bitcoin, keyToAddress)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func newMockWallet() (*BitcoinWallet, error) {
 		fp:     fp,
 	}
 	cli := mock.NewMockApiClient(bw.AddressToScript)
-	ws, err := service.NewWalletService(db, km, cli, params, util.ExtendCoinType(wallet.Bitcoin), cache.NewMockCacher())
+	ws, err := service.NewWalletService(db, km, cli, params, wallet.Bitcoin, cache.NewMockCacher())
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func waitForTxnSync(t *testing.T, txnStore wallet.Txns) {
 func TestBitcoinWallet_buildTx(t *testing.T) {
 	w, err := newMockWallet()
 	if err != nil {
-		//t.Error(err)
+		t.Error(err)
 	}
 	w.ws.Start()
 	time.Sleep(time.Second / 2)
