@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/OpenBazaar/multiwallet.svg?branch=master)](https://travis-ci.org/OpenBazaar/multiwallet)
-[![Coverage Status](https://coveralls.io/repos/github/OpenBazaar/multiwallet/badge.svg?branch=master)](https://coveralls.io/github/OpenBazaar/multiwallet?branch=master)
+[![Build Status](https://travis-ci.org/muecoin/multiwallet.svg?branch=master)](https://travis-ci.org/muecoin/multiwallet)
+[![Coverage Status](https://coveralls.io/repos/github/muecoin/multiwallet/badge.svg?branch=master)](https://coveralls.io/github/muecoin/multiwallet?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/muecoin/multiwallet)](https://goreportcard.com/report/github.com/muecoin/multiwallet)
 
 # multiwallet
